@@ -1,2 +1,1 @@
-# HACPS
- High-Assurance Cyber-Physical Systems
+# High-Assurance Cyber-Physical Systems
