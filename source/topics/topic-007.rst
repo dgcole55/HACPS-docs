@@ -1,9 +1,9 @@
 
 
 
-*********************************************
-HACMS:  High-Assurance Cyber Military Systems
-*********************************************
+*********************************************************
+HACMS:  A seminal demonstration of high-assurance systems
+*********************************************************
 
 It focused on creating robust systems for critical applications, such as drones and helicopters, by designing security into the software from the ground up and isolating vulnerabilities through advanced architectures like the seL4 microkernel. Independent penetration testing validated that HACMS systems were resilient to attacks, demonstrating the potential for formal methods to revolutionize cybersecurity in both military and civilian domains.
 

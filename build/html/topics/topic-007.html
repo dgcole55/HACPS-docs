@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4. HACMS: High-Assurance Cyber Military Systems &mdash; High-Assurance Cyber-Physical Systems 1.0-beta documentation</title>
+  <title>2. HACMS: A seminal demonstration of high-assurance systems &mdash; High-Assurance Cyber-Physical Systems 1.0-beta documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -14,13 +14,13 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=7244b7d1"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Homework" href="../appendices/homework.html" />
-    <link rel="prev" title="3. Introduction to Microkernels" href="topic-020.html" /> 
+    <link rel="next" title="3. History and development of microkernels" href="topic-010.html" />
+    <link rel="prev" title="1. Cyber-Physical Systems" href="topic-005.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,20 +52,21 @@
 <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="topic-005.html">1. Cyber-Physical Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-010.html">2. History and development of microkernels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-020.html">3. Introduction to Microkernels</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. HACMS:  High-Assurance Cyber Military Systems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#background-and-motivation">4.1. Background and Motivation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#formal-methods">4.2. Formal Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#implementation-and-results">4.3. Implementation and Results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#challenges-and-future-directions">4.4. Challenges and Future Directions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#lessons-learned">4.4.1. Lessons Learned</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#research-challenges">4.4.2. Research Challenges</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. HACMS:  A seminal demonstration of high-assurance systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background-and-motivation">2.1. Background and Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formal-methods">2.2. Formal Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-and-results">2.3. Implementation and Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#challenges-and-future-directions">2.4. Challenges and Future Directions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lessons-learned">2.4.1. Lessons Learned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#research-challenges">2.4.2. Research Challenges</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#conclusion">4.5. Conclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">2.5. Conclusion</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="topic-010.html">3. History and development of microkernels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topic-020.html">4. Introduction to Microkernels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topic-040.html">5. seL4 microkernel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul>
@@ -90,9 +91,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4. </span>HACMS:  High-Assurance Cyber Military Systems</li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>HACMS:  A seminal demonstration of high-assurance systems</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/topics/topic-030.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/topics/topic-007.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -100,8 +101,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="hacms-high-assurance-cyber-military-systems">
-<h1><span class="section-number">4. </span>HACMS:  High-Assurance Cyber Military Systems<a class="headerlink" href="#hacms-high-assurance-cyber-military-systems" title="Link to this heading"></a></h1>
+  <section id="hacms-a-seminal-demonstration-of-high-assurance-systems">
+<h1><span class="section-number">2. </span>HACMS:  A seminal demonstration of high-assurance systems<a class="headerlink" href="#hacms-a-seminal-demonstration-of-high-assurance-systems" title="Link to this heading"></a></h1>
 <p>It focused on creating robust systems for critical applications, such as drones and helicopters, by designing security into the software from the ground up and isolating vulnerabilities through advanced architectures like the seL4 microkernel. Independent penetration testing validated that HACMS systems were resilient to attacks, demonstrating the potential for formal methods to revolutionize cybersecurity in both military and civilian domains.</p>
 <p>The High-Assurance Cyber Military Systems (HACMS) program by DARPA aimed to develop secure, high-assurance software systems resistant to cyber-attacks using formal methods, which mathematically verify software correctness.  It was driven by the need to address growing cybersecurity vulnerabilities in modern, connected systems, such as drones, helicopters, and automobiles. Its primary goal was to create software systems that are inherently secure and resilient against sophisticated cyber-attacks, focusing on eliminating exploitable bugs through the use of formal methods—mathematical techniques that ensure software correctness and safety. The HACMS program sought to build trustworthy systems capable of resisting remote hacking attempts, thereby protecting against threats to safety and security. The program aimed to establish a foundation for developing high-assurance software that could benefit both military and civilian applications, transforming how critical systems are secured.</p>
 <p>The HACMS program employed a robust methodology centered on <strong>formal methods</strong>, which use mathematical proofs to rigorously verify software correctness and eliminate exploitable vulnerabilities such as memory safety errors and unauthorized access. This approach ensured the software was free of common flaws that attackers exploit, enhancing its security and reliability. Instead of retrofitting security into existing systems, HACMS focused on incremental development, designing secure software from the ground up to achieve high assurance. To validate its techniques, the program used experimental platforms, including open-source quadcopters like the SMACCMCopter and Boeing’s Unmanned Little Bird (ULB) helicopter, as testbeds. These platforms allowed researchers to demonstrate the practical application of formal methods in creating secure and functional systems, showcasing their potential to transform critical software development.</p>
@@ -109,7 +110,7 @@
 <p>The HACMS program underwent extensive security validation through rigorous penetration tests conducted by independent “Red Teams,” which attempted to exploit vulnerabilities in the systems. These tests consistently demonstrated that HACMS-built systems were highly resistant to cyber-attacks, maintaining their integrity even under extreme scenarios. This robust security performance highlighted the effectiveness of the program’s use of formal methods and its secure-by-design approach to software development.</p>
 <p>The HACMS program demonstrated the feasibility of using formal methods to design highly secure and functional systems, proving that mathematically verified software can effectively resist sophisticated cyber-attacks. Its success provided a clear pathway for retrofitting existing systems with advanced security measures, enabling the enhancement of cybersecurity in legacy systems without compromising performance. Beyond its military applications, the program highlighted the potential for extending formal methods to critical civilian domains, such as medical devices, industrial control systems, and public infrastructure. By showcasing how rigorous software verification can address modern cybersecurity challenges, HACMS paved the way for safer and more reliable technology in both military and civilian contexts.</p>
 <section id="background-and-motivation">
-<h2><span class="section-number">4.1. </span>Background and Motivation<a class="headerlink" href="#background-and-motivation" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.1. </span>Background and Motivation<a class="headerlink" href="#background-and-motivation" title="Link to this heading"></a></h2>
 <p>The interconnected nature of modern systems, even those designed to be isolated, has significantly increased their vulnerability to cyber-attacks. This issue extends beyond traditional computers to encompass the Internet of Things (IoT), including critical systems like industrial SCADA systems, medical devices, and vehicles. High-profile examples, such as the hacking of insulin pumps and automobiles, illustrate the risks posed by this connectivity. In particular, automobiles, now essentially computers on wheels with dozens of embedded control units (ECUs), have proven vulnerable to attacks through various points like the on-board diagnostics (ODB-II) port, Bluetooth, telematics units, and even entertainment systems. Such vulnerabilities have enabled attackers to remotely control critical functions, as seen in demonstrations by researchers who took over braking and acceleration in vehicles, highlighting the urgent need for improved security in interconnected systems.</p>
 <p>Modern vehicles rely on software for essential functionalities such as anti-lock braking, cruise control, and remote access features, making them susceptible to exploitation. Research has revealed how attackers can manipulate vehicle systems remotely by exploiting flaws in CAN bus networks and other interfaces. For instance, hackers demonstrated the ability to reflash software in ECUs by accessing the ODB-II port or using telematics units to bypass authentication protocols. These vulnerabilities are not unique to specific vehicle models but are indicative of systemic security weaknesses across the automotive industry. A notable example is the 2015 remote hacking of a Jeep Cherokee, <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> which led to a recall of 1.4 million vehicles, emphasizing the critical need for stronger safeguards in automotive cybersecurity.</p>
 <aside class="footnote-list brackets">
@@ -121,7 +122,7 @@
 <p>The pervasive threat of cybersecurity vulnerabilities stems from the inherent complexity, flexibility, and connectivity of modern computer systems. Effective security requires addressing issues across multiple levels, including software architecture, implementation, user behavior, and physical security. A significant portion of cyber risks arises from implementation errors, which can be exploited to execute arbitrary code or steal sensitive data. High-profile vulnerabilities like the Heartbleed bug in OpenSSL and buffer overflow flaws in widely used libraries demonstrate the scale of the problem. The emergence of black-market “Exploit Kits” further exacerbates these threats by enabling less-skilled attackers to leverage known vulnerabilities. These challenges highlight the importance of rigorous software development practices and proactive measures to address cybersecurity risks.</p>
 </section>
 <section id="formal-methods">
-<h2><span class="section-number">4.2. </span>Formal Methods<a class="headerlink" href="#formal-methods" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.2. </span>Formal Methods<a class="headerlink" href="#formal-methods" title="Link to this heading"></a></h2>
 <p>Formal methods, long heralded for their promise to create software without exploitable bugs, have become more feasible due to technological advancements. The exponential growth in computing power, driven by Moore’s Law, has provided larger memories and faster processors, enabling the intensive computations required by formal verification. Moreover, advancements in automation, particularly in Boolean satisfiability (SAT) solvers, have significantly improved the ability to automatically prove software properties. Over a decade, SAT solvers have demonstrated a two-orders-of-magnitude improvement in solving complex problems, laying the groundwork for even more sophisticated tools like Satisfiability Modulo Theories (SMT) solvers and tactic libraries that enhance automation in theorem proving.</p>
 <p>The infrastructure supporting formal methods has grown richer, making them more accessible and practical for broader use. Previously, researchers had to create their own tools, limiting the scope and reliability of formal verification. Now, a wide range of robust, well-documented tools such as Coq, ACL2, Z3, and TLA+ are publicly available, enabling developers beyond the academic community to employ formal methods effectively. These tools allow for comprehensive verification of software properties and have become vital in tackling the increasing complexity of critical systems.</p>
 <p>The rising complexity of critical systems underscores the necessity of advanced tools like formal methods. Developers at organizations like Amazon Web Services have adopted model-checking techniques to address the limitations of traditional testing, particularly for identifying rare but impactful design errors in large-scale systems. Formal methods excel at uncovering subtle issues in corner cases that human intuition or conventional testing might overlook. This growing reliance on formal methods reflects their potential to ensure higher reliability and security in increasingly complex and interconnected systems.</p>
@@ -130,15 +131,15 @@
 <p>Certain software components are particularly worth verifying due to their critical role in system reliability and security, such as microkernels, hypervisors, and compilers. Examples include the seL4 microkernel and the CompCert verifying C compiler, both of which were instrumental in the HACMS program. The seL4 microkernel, verified using the Isabelle/HOL proof assistant, offers strong guarantees of functional correctness and security properties like authority confinement and non-interference. Similarly, CompCert, implemented and verified in the Coq proof assistant, ensures the correctness of C code compilation with performance comparable to traditional compilers. These artifacts demonstrate the feasibility and impact of applying formal methods to high-assurance software, providing a foundation for trusted systems in critical domains like aviation and military applications.</p>
 </section>
 <section id="implementation-and-results">
-<h2><span class="section-number">4.3. </span>Implementation and Results<a class="headerlink" href="#implementation-and-results" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.3. </span>Implementation and Results<a class="headerlink" href="#implementation-and-results" title="Link to this heading"></a></h2>
 <p>The High-Assurance Cyber Military Systems (HACMS) program implemented a structured, phased approach to achieve its goal of developing secure and robust software systems. The program started with commercially available platforms, such as an open-source quadcopter (SMACCMCopter) and Boeing’s Unmanned Little Bird (ULB) helicopter. Researchers used formal methods to refactor and verify components incrementally. For the SMACCMCopter, they replaced legacy software with high-assurance code, incorporating memory-safe programming languages and verified real-time operating systems like FreeRTOS and eChronos. The use of tools like the seL4 microkernel ensured that critical components were isolated, protecting the system even when unverified components were present. By employing rigorous mathematical verification techniques, the program designed software that was both secure and functional.</p>
 <p>The HACMS program demonstrated its success through rigorous security testing at each phase. Independent penetration testers, referred to as the “Red Team,” attempted to exploit vulnerabilities in the systems with unrestricted access to documentation and source code. In Phase 1, the Red Team failed to hack into the SMACCMCopter, even with six weeks to discover and exploit potential vulnerabilities. Phase 2 introduced a multi-processor architecture with verified and unverified partitions managed by the seL4 microkernel. Despite granting the Red Team root access to the unverified partition, they were unable to disrupt critical functionality or compromise the system. These results highlighted the effectiveness of HACMS’s formal methods in creating software systems that resisted advanced attack scenarios.</p>
 <p>The HACMS program not only succeeded in securing its experimental platforms but also extended its methods and tools to other systems, demonstrating their broad applicability. In Phase 3, researchers developed advanced features like geofencing for the SMACCMCopter and adapted HACMS techniques for use in military ground robots, autonomous vehicles, and networked weapon systems. These advancements showcased the program’s potential to enhance the cybersecurity of both military and civilian technologies. The verified systems achieved during the HACMS program provide a blueprint for developing high-assurance software across a wide range of critical applications, addressing modern cybersecurity challenges with rigorous, mathematically validated solutions.</p>
 </section>
 <section id="challenges-and-future-directions">
-<h2><span class="section-number">4.4. </span>Challenges and Future Directions<a class="headerlink" href="#challenges-and-future-directions" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.4. </span>Challenges and Future Directions<a class="headerlink" href="#challenges-and-future-directions" title="Link to this heading"></a></h2>
 <section id="lessons-learned">
-<h3><span class="section-number">4.4.1. </span>Lessons Learned<a class="headerlink" href="#lessons-learned" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.4.1. </span>Lessons Learned<a class="headerlink" href="#lessons-learned" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Avoid Verifying Existing Code Artifacts</dt><dd><ul>
@@ -188,12 +189,12 @@
 </ul>
 </section>
 <section id="research-challenges">
-<h3><span class="section-number">4.4.2. </span>Research Challenges<a class="headerlink" href="#research-challenges" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.4.2. </span>Research Challenges<a class="headerlink" href="#research-challenges" title="Link to this heading"></a></h3>
 <p>Despite the promise of formal methods for building secure and reliable systems, several challenges remain. Developing and validating models of real-world systems, such as the x86 architecture or POSIX interfaces, is labor-intensive, and flaws in these models can undermine the validity of proofs. Increasing automation in tools like SAT and SMT solvers and improving scalability through proof engineering are essential for handling larger systems and managing complex proofs. Integration into standard development workflows is necessary to ensure widespread adoption, as demonstrated by tools like Facebook’s INFER. Encouraging developer buy-in often requires reframing formal methods in practical terms, as seen at Amazon Web Services. Additionally, addressing the computational challenges of concurrency is critical, as current techniques struggle with the combinatorial complexity introduced by multi-threaded executions.</p>
 </section>
 </section>
 <section id="conclusion">
-<h2><span class="section-number">4.5. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.5. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
 <p>The HACMS program demonstrates that formal methods can produce practical, high-assurance systems capable of resisting sophisticated cyber-attacks. It provides a framework for adopting formal methods in broader contexts, emphasizing the need for continued research to enhance scalability, automation, and integration into conventional development practices.</p>
 </section>
 </section>
@@ -202,8 +203,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="topic-020.html" class="btn btn-neutral float-left" title="3. Introduction to Microkernels" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../appendices/homework.html" class="btn btn-neutral float-right" title="Homework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="topic-005.html" class="btn btn-neutral float-left" title="1. Cyber-Physical Systems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="topic-010.html" class="btn btn-neutral float-right" title="3. History and development of microkernels" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
