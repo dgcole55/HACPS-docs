@@ -10,4 +10,5 @@ Homework
     - Biggs, Simon, Damon Lee, and Gernot Heiser. "The jury is in: Monolithic os design is flawed: Microkernel-based designs improve security." *Proceedings of the 9th Asia-Pacific Workshop on Systems.* 2018. `<https://doi.org/10.1145/3265723.3265733>`_  
 
     -  Fisher Kathleen, John Launchbury, and Richards Raymond. 2017.  "The HACMS program: using formal methods to eliminate exploitable bugs." *Phil. Trans. R. Soc. A.* **375**:20150401 `<https://doi.org/10.1098/rsta.2015.0401>`_
-    
+3. Reading
+    - Heiser, Gernot. "The sel4 Microkernel --- An Introduction." The seL4 Foundation (2020). `<https://sel4.systems/About/seL4-whitepaper.pdf>`_
