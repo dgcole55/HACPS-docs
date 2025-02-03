@@ -24,9 +24,19 @@ exclude_patterns = []
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'sphinx_rtd_theme'
+# import better
+# html_theme = 'better'
+# html_theme_path = [better.better_theme_path]
+
+# html_theme = 'sphinx_rtd_theme'
+# html_theme = 'bizstyle'
+html_theme = 'piccolo_theme'
+
 html_static_path = ['_static']
 html_baseurl = ''
+html_title = 'HACPS'
+html_sidebars = {'**':['globaltoc.html']}
+# html_logo = './_static/logo.png'
 
 # rst_prolog = """
 # .. |imgpath| replace:: ../_static/images

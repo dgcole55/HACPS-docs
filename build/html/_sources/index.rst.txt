@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-#####################################
+##########################################
 High-Assurance Cyber-Physical Systems
-#####################################
+##########################################
 
 This course offers an in-depth introduction to high-assurance systems and their application in the design and analysis of safe and secure cyber-physical systems. Upon completing this course, students will have foundation for further study in this field, emphasizing the importance of designing and verifying computer-controlled systems to meet stringent reliability, safety, security, and correctness standards. Students will explore how to ensure these systems operate reliably under both normal and abnormal conditions, resist malicious attacks, and remain maintainable over time. The course will cover rigorous engineering practices, formal methods, verification techniques, and certification processes to achieve high assurance in system design.
 
