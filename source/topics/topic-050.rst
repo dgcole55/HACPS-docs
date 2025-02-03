@@ -130,6 +130,42 @@ By itself, the serial server could do lots of processing, and even output things
 
 The UART is part of the hardware of our system.  As such, there is no other protection domain that needs to be defined by us.  But, we do need to make a memory region to a specific physical address so that we can have access to it.
 
+Interrupt Requests (IRQ)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now we need to setup the code that communicates to the UART and handles the IRQ.
+
+First, you want to fix the ``init()`` function.
+
+.. code-block:: c
+
+    void init(void) {
+        uart_init();
+        uart_put_str("SERIAL SERVER: starting\n");
+    }
+
+When an IRQ occurs, for example after we type something in the keyboard, we need to handle the IRQ.  This happens with the ``notified()`` entry point.
+
+.. code-block:: c
+
+    void notified(microkit_channel channel) {
+        int character = uart_get_char();
+        uart_put_char(character)
+        uart_handle_irq();
+        microkit_irq_ack(1);    
+    }
+
+When you type on the keyboard, the UART issues an IRQ.  Because this is mapped to the ``serial_server`` protection domain, this enables the ``notified()`` function, which does the following:
+
+- ``uart_get_char()`` get the character that was just typed.  The output of this function is an integer, which we store in the ``character`` variable.  
+- ``uart_put_char()`` this puts the character to the screen.  You could have also used ``printf(%d,character)``, which does the same thing.
+- ``uart_handle_irq()`` tells the driver to handle the request.
+- ``microkit_irq_ack()`` tells seL4 that are finished handling the IRQ and are ready for another one.  Without this, seL4 would not send another IRQ.
+
+
+Memory Regions
+^^^^^^^^^^^^^^
+
 First we define the memory region 
 
 .. code-block:: xml
@@ -137,3 +173,44 @@ First we define the memory region
     <memory_region name="uart" phys_addr="0x9_000_000" size="0x1000" />
 
 The physical address of the UART is ``0x9000000``.  
+
+.. Discuss how you can find out where the UART address is found.
+
+Now we want to map that memory region to the serial server's protection domain. 
+
+.. code-block:: xml
+
+    <protection_domain name="serial_server" priority="254">
+        <program_image path="serial_server.elf" />
+        <map mr="uart" vaddr="0x2000000" perms="rw" cached="false" 
+            setvar_vaddr="uart_base_vaddr"/>
+    </protection_domain>
+
+- ``mr`` is the memory region (defined above) that is being mapped to.
+- ``vaddr`` is the virtual address forthe mapped memory region. 
+- ``perms`` are the permissions for the region.  the options are ``r`` (read), ``w`` (write), and ``x`` (execute).  We have set it to ``rw`` so we can both read and write to the memory.
+- ``cached`` determines if caching is enabled.  It defaults to true.  We've set it to false.
+- ``setvar_vaddr`` is a symbol that gets used in the program image.
+
+The other thing we need to setup are how to handle interrupts.
+
+.. code-block:: xml
+
+    <irq irq="33" id="1" />
+
+This tells the protection domain that ...
+
+- ``irq`` is the interrupt number.  It is based upon the resource creating the interrupt. 
+- ``id`` is the channel identifier and is the number that you would reference.
+
+With all of this the protection domain now looks like this:
+
+.. code-block:: xml
+
+    <protection_domain name="serial_server" priority="254">
+        <program_image path="serial_server.elf" />
+        <map mr="uart" vaddr="0x2000000" perms="rw" cached="false" 
+            setvar_vaddr="uart_base_vaddr"/>
+        <irq irq="33" id="1" />
+    </protection_domain>
+
