@@ -22,7 +22,6 @@ The demand for formally verified systems is growing in sectors such as aviation,
 
 .. toctree::
    :maxdepth: 1
-   :caption: Syllabus
    
    syllabus/syllabus
 
