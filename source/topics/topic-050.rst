@@ -20,4 +20,6 @@ In what follows, we give some more insight on the solutions to the tutorial's su
 .. include:: part2.rst
 
 .. include:: part3.rst
+
+.. include:: part4.rst
     

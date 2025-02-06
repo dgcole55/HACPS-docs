@@ -50,4 +50,8 @@ Homework
 
     Please let me know of problems, challenges, and **successes**.
 
+5. Complete parts 1 and 2 of the Microkit Tutorial.  Submit a screenshot showing your name in the Wordle table.
 
+    - `<https://trustworthy.systems/projects/microkit/tutorial/>`_
+
+6. Complete parts 3 and 4 of the Microkit Tutorial.  Submit a screenshot showing you having played Wordle.
