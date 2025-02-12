@@ -41,4 +41,5 @@ Invariants
 
 .. at 4:44 in Introduction to the seL4 proofs:  Interactive Mode
 
-
+Define Hoare Triples
+--------------------
