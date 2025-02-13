@@ -33,7 +33,6 @@ The demand for formally verified systems is growing in sectors such as aviation,
 
    topics/topic-*
 
-
 .. toctree::
    :maxdepth: 1
    :caption: Homework
@@ -41,7 +40,6 @@ The demand for formally verified systems is growing in sectors such as aviation,
    :glob:
 
    appendices/homework
-
 
 .. toctree::
    :maxdepth: 1

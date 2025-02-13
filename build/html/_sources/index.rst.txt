@@ -42,7 +42,6 @@ The demand for formally verified systems is growing in sectors such as aviation,
 
    appendices/homework
 
-
 .. toctree::
    :maxdepth: 1
    :caption: Appendices
