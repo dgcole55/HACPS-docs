@@ -4,6 +4,11 @@
 Building Systems for seL4
 *************************
 
+
+..
+    A resource about the IRQ number.
+    https://github.com/au-ts/microkit_tutorial/issues/13
+    
 In this chapter, we are going to work through how to build systems in seL4.  To do this, we are going to use the seL4 Microkit tutorial.  See :ref:`setup-microkit-tutorials` for instructions on how to setup the environment.
 
 The tutorial steps through the process of building a Wordle game.  It proceeds in four parts:
