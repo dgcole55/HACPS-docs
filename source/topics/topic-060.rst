@@ -1,7 +1,5 @@
 
 
-
-
 **************
 Proofs of seL4
 **************
@@ -195,7 +193,7 @@ The command is ``(call_kernel e) :: (unit,unit) s_monad`` and if we click throug
 and ``lib > Monads > nondet > Nonet_Monad.thy``
 
 
-.. code-bklock:: isabelle
+.. code-block:: isabelle
 
     type_synonym ('s, 'a) nondet_monad = "'s \<Rightarrow> ('a \<times> 's) set \<times> bool"
 

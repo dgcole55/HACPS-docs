@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. Introduction to Microkernels &#8212; HACPS</title>
+    <title>Introduction to Microkernels &#8212; HACPS</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
     <script src="../_static/documentation_options.js?v=7244b7d1"></script>
@@ -14,9 +14,7 @@
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. The seL4 microkernel" href="topic-040.html" />
-    <link rel="prev" title="3. History and development of microkernels" href="topic-010.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -125,14 +123,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../syllabus/syllabus.html">Syllabus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="topic-005.html">1. Introduction to Cyber-Physical Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-007.html">2. HACMS:  A seminal demonstration of high-assurance systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-010.html">3. History and development of microkernels</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Introduction to Microkernels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-040.html">5. The seL4 microkernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-050.html">6. Building Systems for seL4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-060.html">7. Proofs of seL4</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Cyber-Physical Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Microkernels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Machine Checked Proofs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul>
@@ -155,24 +149,24 @@
           <div class="body" role="main">
             
   <section id="introduction-to-microkernels">
-<h1><span class="section-number">4. </span>Introduction to Microkernels<a class="headerlink" href="#introduction-to-microkernels" title="Link to this heading">¶</a></h1>
+<h1>Introduction to Microkernels<a class="headerlink" href="#introduction-to-microkernels" title="Link to this heading">¶</a></h1>
 <p>A kernel is the central component of an operating system, serving as the critical interface between hardware and software applications. It manages system resources like memory, CPU, and peripherals, ensuring efficient hardware utilization and multitasking. Key functions of the kernel include process scheduling, memory allocation, device management, and handling system calls from applications. Acting as an abstraction layer, the kernel allows developers to write software without needing detailed knowledge of the hardware.</p>
 <p>The kernel directly interacts with hardware, translating software requests into instructions understandable by the CPU. It also allocates resources to applications, optimizing performance and maintaining system stability. For example, in Linux, the Linux kernel is the core that facilitates hardware interaction and communication between software components, exemplifying the kernel’s role in managing operating systems.</p>
 <p>A microkernel is a streamlined operating system kernel that handles only fundamental functions such as memory management, process scheduling, and IPC. Unlike traditional kernels, most services like device drivers, file systems, and network protocols run as separate processes in user space, communicating with the microkernel through message passing. This modular design focuses on core functionalities to enable greater flexibility, security, and ease of maintenance.</p>
 <p>The microkernel’s minimalistic approach offers several benefits. By isolating services in user space, it improves security, as failures in one service do not crash the entire system. Its portability allows adaptation to different hardware platforms by replacing user-space components, while extensibility supports adding features without altering the core kernel. Examples of microkernel-based operating systems include QNX, MINIX, and L4, which demonstrate the practical advantages of this architecture in various use cases.</p>
 <p>Microkernels face challenges, particularly in performance and design complexity. The reliance on IPC and frequent context switching between the kernel and user space can lead to performance overhead compared to monolithic kernels. Designing efficient IPC mechanisms and ensuring seamless interaction between user-space services require careful planning. Despite these hurdles, microkernels are widely implemented in systems like QNX (used in embedded systems), MINIX (educational OS), and the L4 family (emphasizing performance and security). With ongoing research addressing their challenges, microkernels represent a promising direction for secure, modular, and flexible operating system architectures.</p>
 <section id="kernel-and-user-mode">
-<h2><span class="section-number">4.1. </span>Kernel and user mode<a class="headerlink" href="#kernel-and-user-mode" title="Link to this heading">¶</a></h2>
+<h2>Kernel and user mode<a class="headerlink" href="#kernel-and-user-mode" title="Link to this heading">¶</a></h2>
 <p>In microkernel-based operating systems, the distinction between kernel mode and user mode plays a critical role in system design and functionality. Microkernels are designed to operate with minimal kernel functionality, confining most traditional operating system services, such as file systems, device drivers, and network protocols, to user space. Kernel mode in a microkernel architecture is reserved exclusively for essential operations, including IPC, thread scheduling, and basic memory management. This separation enhances the system’s modularity and security, ensuring that non-essential services run in user mode with restricted privileges.</p>
 <p>In a microkernel architecture, kernel mode is highly streamlined to reduce the complexity and size of the kernel. Only the core functionalities that require direct hardware access, such as low-level memory management and IPC mechanisms, are executed in this privileged mode. By minimizing the operations performed in kernel mode, microkernels significantly reduce the attack surface and the potential impact of kernel-level faults. This approach contrasts with monolithic kernels, where many services run in kernel mode, increasing the likelihood of system-wide failures if a bug or vulnerability exists. The reduced reliance on kernel mode in microkernels is a fundamental feature that enhances system reliability.</p>
 <p>Most services in microkernel-based systems operate in user mode, isolated from the core kernel. These user-mode processes include components like file systems, device drivers, and networking services. Operating these services in user mode ensures that faults or crashes in one service do not affect the rest of the system, as each service operates in its own protected address space. When these services need to interact or access hardware, they rely on IPC mechanisms provided by the kernel. While this design introduces some performance overhead due to frequent context switching between user and kernel mode, it improves fault isolation, security, and maintainability, aligning with the primary goals of microkernel architecture.</p>
 </section>
 <section id="microkernel-architecture">
-<h2><span class="section-number">4.2. </span>Microkernel architecture<a class="headerlink" href="#microkernel-architecture" title="Link to this heading">¶</a></h2>
+<h2>Microkernel architecture<a class="headerlink" href="#microkernel-architecture" title="Link to this heading">¶</a></h2>
 <p>Microkernel architecture is a software design pattern that minimizes the core system to essential functions like memory management, process scheduling, and IPC. Additional features and services, such as device drivers, file systems, and network protocols, are implemented as separate user-space modules.  These modules communicate with the microkernel through well-defined interfaces, allowing the architecture to remain flexible, modular, and extensible. This separation enables developers to add or modify features without altering the core system, simplifying maintenance and fostering adaptability.</p>
 <p>The modular nature of microkernel architecture enhances security and fault isolation, as failures in individual modules are less likely to affect the entire system. This design is widely adopted in operating systems like QNX and L4 Linux, integrated development environments (IDEs) like Eclipse, and web browsers that rely on plug-ins for additional functionality. However, microkernel architecture can introduce performance overhead due to the frequent inter-process communication between the kernel and user-space modules. Additionally, designing and managing well-defined communication interfaces between the core and modules adds complexity, posing challenges for developers. Despite these drawbacks, its advantages in extensibility and modularity make it a valuable architecture for dynamic, scalable systems.</p>
 <section id="essential-services-provided-by-microkernels">
-<h3><span class="section-number">4.2.1. </span>Essential Services Provided by Microkernels<a class="headerlink" href="#essential-services-provided-by-microkernels" title="Link to this heading">¶</a></h3>
+<h3>Essential Services Provided by Microkernels<a class="headerlink" href="#essential-services-provided-by-microkernels" title="Link to this heading">¶</a></h3>
 <p>The microkernel handles only the essential tasks required to interact with the underlying hardware, such as managing memory, scheduling processors, and facilitating inter-process communication. Functions like applications, drivers, protocol stacks, and file systems operate externally in separate address spaces.</p>
 <ul class="simple">
 <li><p><strong>Inter process communication (IPC)</strong>:  IPC is a mechanism that enables processes within a system to exchange information and coordinate their actions efficiently.</p></li>
@@ -182,12 +176,12 @@
 </section>
 </section>
 <section id="inter-process-communication">
-<h2><span class="section-number">4.3. </span>Inter Process Communication<a class="headerlink" href="#inter-process-communication" title="Link to this heading">¶</a></h2>
+<h2>Inter Process Communication<a class="headerlink" href="#inter-process-communication" title="Link to this heading">¶</a></h2>
 <p>IPC encompasses various mechanisms that enable processes within a computer system to exchange information and coordinate actions. These mechanisms are essential for facilitating communication between user-space services and the kernel, as well as among separate components like file systems and device drivers. By providing structured methods for data exchange, IPC ensures that processes can work together seamlessly, maintaining system efficiency and stability.</p>
 <p>The importance of IPC lies in its ability to facilitate communication between user-space services and the kernel, enabling modularity by allowing separate components to interact seamlessly. In microkernel architectures, where services such as device drivers and file systems operate in user space, IPC mechanisms are crucial for coordinating these services with the kernel. This modular approach enhances system stability and security, as each component operates independently, reducing the risk of system-wide failures.</p>
 <p>Common IPC techniques include message passing and shared memory. In message passing, processes communicate by sending and receiving structured messages, which the operating system manages to ensure proper synchronization and data integrity. This method is particularly useful in distributed systems where processes may reside on different machines. Shared memory, on the other hand, involves multiple processes accessing a common memory space, allowing for faster communication by eliminating the need for data copying. While shared memory can offer performance benefits, it requires careful synchronization to prevent issues such as race conditions.</p>
 <section id="ipc-techniques-in-microkernels">
-<h3><span class="section-number">4.3.1. </span>IPC techniques in microkernels<a class="headerlink" href="#ipc-techniques-in-microkernels" title="Link to this heading">¶</a></h3>
+<h3>IPC techniques in microkernels<a class="headerlink" href="#ipc-techniques-in-microkernels" title="Link to this heading">¶</a></h3>
 <section id="message-passing">
 <h4>Message Passing<a class="headerlink" href="#message-passing" title="Link to this heading">¶</a></h4>
 <p>Message passing is an IPC technique where processes exchange information by sending and receiving structured messages. This method ensures proper synchronization and maintains data integrity during communication. The operating system typically manages the message transfer, making it a reliable mechanism for process coordination. Message passing is particularly well-suited for distributed systems or scenarios where processes are running on separate machines, as it provides a straightforward way to exchange data across networked environments.</p>
@@ -237,18 +231,18 @@
 </section>
 </section>
 <section id="pros-and-cons">
-<h3><span class="section-number">4.3.2. </span>Pros and Cons<a class="headerlink" href="#pros-and-cons" title="Link to this heading">¶</a></h3>
+<h3>Pros and Cons<a class="headerlink" href="#pros-and-cons" title="Link to this heading">¶</a></h3>
 <p>IPC is a cornerstone of microkernel architecture, offering significant advantages in modularity, parallelism, and resource management. By facilitating modular application and system design, IPC allows various components, such as device drivers and file systems, to operate as independent processes in user space. This separation improves maintainability, as individual components can be updated or replaced without affecting the rest of the system. Furthermore, IPC enhances parallelism by enabling multiple processes to work concurrently, ensuring that tasks are executed efficiently across the system. This capability is particularly beneficial in modern multi-core processors, where multiple threads or processes can run simultaneously. IPC also promotes efficient resource sharing and management, as the kernel mediates access to hardware resources, ensuring fairness and preventing conflicts among processes.</p>
 <p>Despite its advantages, IPC in microkernels poses several challenges, particularly in terms of performance, security, and complexity. The reliance on frequent communication between user-space services and the microkernel introduces overhead, as each message requires context switching and synchronization, which can impact system performance. Additionally, IPC mechanisms may expose potential security risks, such as unauthorized access to shared memory or interception of message queues, necessitating robust safeguards to protect sensitive data. The complexity of debugging and ensuring proper synchronization further complicates IPC implementation. Developers must carefully design mechanisms to prevent race conditions, deadlocks, and other synchronization issues, which can be challenging in highly modular and distributed systems. These challenges underscore the importance of striking a balance between the modularity benefits of IPC and the overhead it introduces in microkernel-based systems.</p>
 </section>
 </section>
 <section id="memory-management">
-<h2><span class="section-number">4.4. </span>Memory management<a class="headerlink" href="#memory-management" title="Link to this heading">¶</a></h2>
+<h2>Memory management<a class="headerlink" href="#memory-management" title="Link to this heading">¶</a></h2>
 <p>Memory management in microkernels involves the allocation, deallocation, and protection of memory spaces used by processes. This critical function ensures that each process has the memory it requires to execute efficiently, without encroaching on the memory allocated to other processes. One of its primary roles is to guarantee memory isolation, preventing processes from interfering with each other’s data or operations. This isolation is particularly important in a microkernel system, where most services operate in user space and require strict boundaries to maintain system stability. Memory allocation is typically dynamic, allowing processes to request and release memory based on their real-time needs, optimizing resource utilization in multi-process environments.</p>
 <p>In addition to its functional roles, memory management in microkernels prioritizes security. It safeguards memory regions against unauthorized access by enforcing strict access controls and segmentation. For example, user-space services cannot directly access kernel memory, reducing the risk of security breaches. Moreover, microkernels implement mechanisms to detect and handle memory-related errors, such as buffer overflows or invalid memory access, which could otherwise compromise system integrity. These security features are integral to the microkernel’s design, supporting its goals of modularity and fault tolerance while ensuring that malicious or faulty processes do not disrupt the overall system.</p>
 </section>
 <section id="cpu-scheduling">
-<h2><span class="section-number">4.5. </span>CPU-Scheduling<a class="headerlink" href="#cpu-scheduling" title="Link to this heading">¶</a></h2>
+<h2>CPU-Scheduling<a class="headerlink" href="#cpu-scheduling" title="Link to this heading">¶</a></h2>
 <p>Thread management in microkernels involves overseeing the lifecycle of threads, including their creation, scheduling, and termination. Threads, being the smallest units of execution, are essential for running tasks efficiently in a multitasking operating system. The microkernel is responsible for managing the execution of these threads and ensuring smooth context switching between them. By enabling concurrency and parallelism, thread management allows multiple threads to execute simultaneously or cooperatively, optimizing the utilization of CPU resources. This is especially important in multi-core processors, where effective thread management directly impacts system performance.</p>
 <p>Microkernels prioritize lightweight thread management to ensure efficient process execution with minimal overhead. Threads in microkernel-based systems are often designed to be lean, allowing for faster context switching and better resource allocation. Another key feature is the decoupling of user-space thread scheduling from kernel-level operations. This design provides flexibility by allowing user-space services to implement custom scheduling policies tailored to their specific needs, without requiring changes to the kernel. This separation enhances modularity and simplifies the addition of new features, aligning with the microkernel’s emphasis on a minimal, efficient, and adaptable core.</p>
 </section>
@@ -268,25 +262,25 @@
             <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
             <div class="page_toc">
                 <ul>
-<li><a class="reference internal" href="#">4. Introduction to Microkernels</a><ul>
-<li><a class="reference internal" href="#kernel-and-user-mode">4.1. Kernel and user mode</a></li>
-<li><a class="reference internal" href="#microkernel-architecture">4.2. Microkernel architecture</a><ul>
-<li><a class="reference internal" href="#essential-services-provided-by-microkernels">4.2.1. Essential Services Provided by Microkernels</a></li>
+<li><a class="reference internal" href="#">Introduction to Microkernels</a><ul>
+<li><a class="reference internal" href="#kernel-and-user-mode">Kernel and user mode</a></li>
+<li><a class="reference internal" href="#microkernel-architecture">Microkernel architecture</a><ul>
+<li><a class="reference internal" href="#essential-services-provided-by-microkernels">Essential Services Provided by Microkernels</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#inter-process-communication">4.3. Inter Process Communication</a><ul>
-<li><a class="reference internal" href="#ipc-techniques-in-microkernels">4.3.1. IPC techniques in microkernels</a><ul>
+<li><a class="reference internal" href="#inter-process-communication">Inter Process Communication</a><ul>
+<li><a class="reference internal" href="#ipc-techniques-in-microkernels">IPC techniques in microkernels</a><ul>
 <li><a class="reference internal" href="#message-passing">Message Passing</a></li>
 <li><a class="reference internal" href="#message-queues">Message Queues</a></li>
 <li><a class="reference internal" href="#shared-memory">Shared Memory</a></li>
 <li><a class="reference internal" href="#semaphores">Semaphores</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pros-and-cons">4.3.2. Pros and Cons</a></li>
+<li><a class="reference internal" href="#pros-and-cons">Pros and Cons</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#memory-management">4.4. Memory management</a></li>
-<li><a class="reference internal" href="#cpu-scheduling">4.5. CPU-Scheduling</a></li>
+<li><a class="reference internal" href="#memory-management">Memory management</a></li>
+<li><a class="reference internal" href="#cpu-scheduling">CPU-Scheduling</a></li>
 </ul>
 </li>
 </ul>
@@ -301,14 +295,9 @@
         <div class="button_nav">
             <div class="left">
                 
-                <a href="topic-010.html">
-                    <span class="icon">&lt;</span><span><span class="section-number">3. </span>History and development of microkernels</span></a>
-                
             </div>
 
             <div class="right">
-                
-                    <a href="topic-040.html"><span><span class="section-number">5. </span>The seL4 microkernel</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

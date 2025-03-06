@@ -19,7 +19,7 @@ release = '1.0-beta'
 extensions = []
 
 templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = ['numbered-index.rst']
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -36,6 +36,10 @@ html_static_path = ['_static']
 html_baseurl = ''
 html_title = 'HACPS'
 html_sidebars = {'**':['globaltoc.html']}
+html_theme_options = {
+    "navigation_depth": 2,
+    # "banner_text": 'University of Pittsburgh',
+    "globaltoc_collaps": True}
 # html_logo = './_static/logo.png'
 
 # rst_prolog = """

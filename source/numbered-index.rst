@@ -15,7 +15,6 @@ As critical infrastructure increasingly relies on complex systems, understanding
 
 The demand for formally verified systems is growing in sectors such as aviation, automotive, infrastructure, manufacturing, energy, and other mission-critical industries. Governments and high-assurance industries now require formal verification as a prerequisite for trusted systems.  This course equips students with both theoretical and practical knowledge essential for building safe software in Industry 4.0, offering a professional advantage in tomorrow's software engineering requirements. In this course, students will gain valuable insights into using proven-secure embedded microcontrollers to design high-assurance cyber-physical systems.
 
-
 .. toctree::
    :maxdepth: 1
    
@@ -27,17 +26,17 @@ The demand for formally verified systems is growing in sectors such as aviation,
    syllabus/syllabus
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
    :caption: Contents
+   :numbered: 3 
    :glob:
 
-   topics/chapter1.rst
-   topics/chapter2.rst
-   topics/chapter3.rst
+   topics/topic-*
 
 .. toctree::
    :maxdepth: 1
    :caption: Homework
+   :numbered: -1
    :glob:
 
    appendices/homework
@@ -45,6 +44,7 @@ The demand for formally verified systems is growing in sectors such as aviation,
 .. toctree::
    :maxdepth: 1
    :caption: Appendices
+   :numbered: -1
    :glob:
 
    appendices/appendix-*

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Introduction to Cyber-Physical Systems &#8212; HACPS</title>
+    <title>Introduction to Cyber-Physical Systems &#8212; HACPS</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
     <script src="../_static/documentation_options.js?v=7244b7d1"></script>
@@ -14,9 +14,7 @@
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. HACMS: A seminal demonstration of high-assurance systems" href="topic-007.html" />
-    <link rel="prev" title="Syllabus" href="../syllabus/syllabus.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -125,14 +123,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../syllabus/syllabus.html">Syllabus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction to Cyber-Physical Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-007.html">2. HACMS:  A seminal demonstration of high-assurance systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-010.html">3. History and development of microkernels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-020.html">4. Introduction to Microkernels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-040.html">5. The seL4 microkernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-050.html">6. Building Systems for seL4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topic-060.html">7. Proofs of seL4</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Cyber-Physical Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Microkernels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Machine Checked Proofs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul>
@@ -155,15 +149,15 @@
           <div class="body" role="main">
             
   <section id="introduction-to-cyber-physical-systems">
-<h1><span class="section-number">1. </span>Introduction to Cyber-Physical Systems<a class="headerlink" href="#introduction-to-cyber-physical-systems" title="Link to this heading">¶</a></h1>
+<h1>Introduction to Cyber-Physical Systems<a class="headerlink" href="#introduction-to-cyber-physical-systems" title="Link to this heading">¶</a></h1>
 <section id="what-are-cyber-physical-systems">
-<h2><span class="section-number">1.1. </span>What Are Cyber-Physical Systems?<a class="headerlink" href="#what-are-cyber-physical-systems" title="Link to this heading">¶</a></h2>
+<h2>What Are Cyber-Physical Systems?<a class="headerlink" href="#what-are-cyber-physical-systems" title="Link to this heading">¶</a></h2>
 <p>Cyber-physical systems (CPS) are integrations of computational and physical components designed to interact with and control the physical world. By using embedded software, sensors, actuators, and communication networks, these systems collect data from their environment, process it, and take real-time actions to achieve specific goals. Examples of CPS range from everyday applications like smart thermostats and autonomous vehicles to complex infrastructures such as power grids, medical devices, and industrial automation. By bridging the gap between digital computing and physical processes, CPS enable unprecedented levels of efficiency, automation, and functionality.</p>
 <p>At their core, CPS operate through a tight integration of computation, communication, and control. Sensors embedded in the physical environment gather real-time data, which algorithms process to make decisions or trigger actions. Actuators then perform physical operations based on these decisions, creating a feedback loop for continuous adaptation and optimization. This integration enables CPS to handle tasks requiring precision, coordination, and responsiveness, such as stabilizing aircraft, managing robotic manufacturing systems, or monitoring patient vitals in healthcare. The adaptability of CPS makes them critical for developing intelligent and responsive systems across various industries.</p>
 <p>The benefits of CPS are transformative, as they foster smarter and safer infrastructure, enhance industrial productivity, and contribute to sustainable development. CPS optimize energy use in smart grids, improve transportation safety with autonomous systems, and innovate in healthcare with personalized treatments and real-time patient monitoring. However, their complexity introduces challenges, such as ensuring dependability, addressing cybersecurity risks, and managing interdisciplinary integration. Fault detection, tolerance, and failure isolation are critical concerns in safety-critical applications, while ethical and regulatory considerations must be addressed. With robust design, testing, and security, CPS have the potential to profoundly impact society, improving quality of life and driving innovation in a wide range of fields.</p>
 </section>
 <section id="failures-in-cyber-physical-systems">
-<h2><span class="section-number">1.2. </span>Failures in Cyber-Physical Systems<a class="headerlink" href="#failures-in-cyber-physical-systems" title="Link to this heading">¶</a></h2>
+<h2>Failures in Cyber-Physical Systems<a class="headerlink" href="#failures-in-cyber-physical-systems" title="Link to this heading">¶</a></h2>
 <p>Failures in cyber-physical systems (CPS) occur when the interplay between computational and physical components breaks down, leading to unintended or catastrophic consequences. These systems are designed to operate in complex and often safety-critical environments, making their reliability paramount. However, failures can stem from software bugs, hardware malfunctions, integration errors, or human factors. For example, a minor oversight in software coding or an unanticipated physical interaction can trigger a chain reaction of faults, as seen in incidents like the Therac-25 radiation overdoses and the Ariane 5 rocket explosion. Such failures reveal the high stakes of CPS design and underscore the importance of rigorous testing and fail-safe mechanisms.</p>
 <p>One of the main challenges in CPS is ensuring that computational models accurately reflect the complexities of the physical world. Discrepancies between simulated conditions during development and real-world scenarios can lead to unexpected behavior. Additionally, CPS failures often have cascading effects, where a single fault propagates through interconnected components. The 2003 Northeast Blackout, for instance, began with a localized software failure in the power grid’s monitoring system but escalated into a widespread power outage affecting millions. This interconnectedness makes detecting and mitigating vulnerabilities a critical aspect of CPS development.</p>
 <p>The consequences of CPS failures can range from financial losses and environmental damage to injuries and loss of life, depending on the system’s domain. High-profile incidents, such as the Boeing 737 MAX crashes or the Toyota unintended acceleration cases, have drawn attention to the risks of over-reliance on software without sufficient fail-safes or redundancy. These failures highlight the need for a multi-faceted approach to CPS reliability, including robust software verification, continuous system monitoring, and comprehensive safety protocols. As CPS become more pervasive in areas like healthcare, transportation, and energy, addressing these vulnerabilities is critical to ensuring their safe and effective operation.</p>
@@ -223,7 +217,7 @@
 </aside>
 </section>
 <section id="high-assurance-cyber-physical-systems">
-<h2><span class="section-number">1.3. </span>High-assurance cyber-physical systems<a class="headerlink" href="#high-assurance-cyber-physical-systems" title="Link to this heading">¶</a></h2>
+<h2>High-assurance cyber-physical systems<a class="headerlink" href="#high-assurance-cyber-physical-systems" title="Link to this heading">¶</a></h2>
 <p>High-assurance in cyber-physical systems refers to the rigorous level of reliability, safety, and security required for systems that interact with the physical world, especially in scenarios where failures could result in catastrophic consequences. These systems integrate computational elements with physical processes, such as autonomous vehicles, medical devices, and industrial control systems. Achieving high-assurance means guaranteeing that the system behaves as intended under all conditions, including extreme or unexpected scenarios, through meticulous design, testing, and validation. The goal is to minimize risks, ensure fault tolerance, and provide confidence in the system’s dependability and safety.</p>
 <p>A high-assurance approach involves the use of formal verification techniques, where mathematical models are employed to prove the correctness of software and hardware. This ensures that the system logic is free of critical errors and adheres strictly to its specifications. Additionally, high-assurance systems undergo comprehensive testing that includes stress-testing, edge-case analysis, and real-world scenario simulation. Redundancy and fail-safe mechanisms are also fundamental, providing backup solutions to maintain functionality and mitigate risks in the event of partial failures. High-assurance systems often operate in regulated environments, requiring compliance with strict standards and certifications that dictate design, implementation, and maintenance practices.</p>
 <p>The importance of high-assurance in cyber-physical systems cannot be overstated, as these systems frequently play a direct role in protecting human lives, critical infrastructure, and environmental safety. A single flaw in a high-assurance system, such as an autonomous vehicle’s control software or a medical device like the Therac-25, can lead to disastrous outcomes. Therefore, ensuring high-assurance involves not only technical robustness but also cross-disciplinary coordination among engineers, designers, and safety experts. By prioritizing high-assurance principles, developers can build systems that inspire trust and reliability, even in the most demanding and unpredictable environments.</p>
@@ -327,10 +321,10 @@
             <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
             <div class="page_toc">
                 <ul>
-<li><a class="reference internal" href="#">1. Introduction to Cyber-Physical Systems</a><ul>
-<li><a class="reference internal" href="#what-are-cyber-physical-systems">1.1. What Are Cyber-Physical Systems?</a></li>
-<li><a class="reference internal" href="#failures-in-cyber-physical-systems">1.2. Failures in Cyber-Physical Systems</a></li>
-<li><a class="reference internal" href="#high-assurance-cyber-physical-systems">1.3. High-assurance cyber-physical systems</a></li>
+<li><a class="reference internal" href="#">Introduction to Cyber-Physical Systems</a><ul>
+<li><a class="reference internal" href="#what-are-cyber-physical-systems">What Are Cyber-Physical Systems?</a></li>
+<li><a class="reference internal" href="#failures-in-cyber-physical-systems">Failures in Cyber-Physical Systems</a></li>
+<li><a class="reference internal" href="#high-assurance-cyber-physical-systems">High-assurance cyber-physical systems</a></li>
 </ul>
 </li>
 </ul>
@@ -345,14 +339,9 @@
         <div class="button_nav">
             <div class="left">
                 
-                <a href="../syllabus/syllabus.html">
-                    <span class="icon">&lt;</span><span>Syllabus</span></a>
-                
             </div>
 
             <div class="right">
-                
-                    <a href="topic-007.html"><span><span class="section-number">2. </span>HACMS:  A seminal demonstration of high-assurance systems</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

@@ -1,9 +1,7 @@
 
-
 *************************
 Building Systems for seL4
 *************************
-
 
 ..
     A resource about the IRQ number.
@@ -20,11 +18,11 @@ The tutorial steps through the process of building a Wordle game.  It proceeds i
 
 In what follows, we give some more insight on the solutions to the tutorial's sub-parts.
 
-.. include:: part1.rst
+.. include:: section1.rst
 
-.. include:: part2.rst
+.. include:: section2.rst
 
-.. include:: part3.rst
+.. include:: section3.rst
 
-.. include:: part4.rst
+.. include:: section4.rst
     
